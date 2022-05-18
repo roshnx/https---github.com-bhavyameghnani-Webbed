@@ -16,11 +16,12 @@ import IconButton from "@material-ui/core/IconButton";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
 import Autocomplete from "@material-ui/lab/Autocomplete";
+import { useNavigate } from "react-router-dom";
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      Developed by Team Webbed (Shweta, Sara, Roshan, Patvir)
+      Developed by Team Webbed 
       <br />
     </Typography>
   );
@@ -63,6 +64,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Album() {
+  let navigate = useNavigate();
   const classes = useStyles();
 
   const [pathValue, setValue] = useState("");
@@ -213,7 +215,7 @@ export default function Album() {
           </Container>
         </div>
 
-        <Grid item>
+        <Grid container justify="center">
           {/* <MuiThemeProvider theme={eyTheme}> */}
           <TextField
             id="standard-basic"
@@ -235,8 +237,8 @@ export default function Album() {
           {/* </MuiThemeProvider> */}
           <br />
 
-          <Grid item>
-            <Button
+          <Grid container justify="center">
+            {/* <Button
               variant="contained"
               style={{ backgroundColor: "#ca2420", color: "#FFFFFF" }}
               onClick={() => handleSubmit("business")}
@@ -274,7 +276,7 @@ export default function Album() {
               onClick={() => handleSubmit("politics")}
             >
               politics : {politics}
-            </Button>
+            </Button> */}
             &nbsp;&nbsp;
             <Typography
               variant="h7"
@@ -297,8 +299,11 @@ export default function Album() {
 
           <Button
             variant="contained"
-            style={{ backgroundColor: "#00305c", color: "#FFFFFF" }}
-            onClick={() => handleSubmit("politics")}
+            style={{ backgroundColor: "#00305c", color: "#FFFFFF", alig: "center"  }}
+            onClick={() => {
+              let path = 'Dashboard';
+              navigate(path);
+            }}
           >
             Create Dashboard
           </Button>
